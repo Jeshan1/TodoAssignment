@@ -102,36 +102,43 @@ function findAll(){
 
 function findPersonal() {
     const personalTasks = tasks.filter(task => task.category.toLowerCase() === 'personal');
-    displayData(personalTasks);
+    displayData(personalTasks,'personal');
 }
 
 function findWork() {
     const workTasks = tasks.filter(task => task.category.toLowerCase() === 'work');
-    displayData(workTasks);
+    displayData(workTasks,'work');
 }
 
 function findSchool() {
     const schoolTasks = tasks.filter(task => task.category.toLowerCase() === 'school');
-    displayData(schoolTasks);
+    displayData(schoolTasks,'school');
 }
 
-function displayData(filteredTasks) {
+function displayData(filteredTasks,category) {
     const tasklist = document.getElementById('tasklist');
     tasklist.innerHTML = "";
 
-    filteredTasks.forEach((task, index) => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
-            <button onclick="toggleCompletion(${index})">Complete</button>
-            <button onclick="viewDetails(${index})">View Details</button>
-            <button onclick="deleteTask(${index})">Delete</button>
-        `;
-        if (task.completed) {
-            listItem.classList.add('completed');
-        }
-        tasklist.appendChild(listItem);
-    });
+    if (filteredTasks.length === 0) {
+        const listItem = document.createElement('li')
+        listItem.textContent = `No items found on ${category} category`
+        tasklist.appendChild(listItem)
+    }
+    else{
+        filteredTasks.forEach((task, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
+                <button onclick="toggleCompletion(${index})">Complete</button>
+                <button onclick="viewDetails(${index})">View Details</button>
+                <button onclick="deleteTask(${index})">Delete</button>
+            `;
+            if (task.completed) {
+                listItem.classList.add('completed');
+            }
+            tasklist.appendChild(listItem);
+        });
+    }
 }
 
 
