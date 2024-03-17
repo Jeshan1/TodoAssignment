@@ -37,6 +37,23 @@ body{
     margin: 5px 13px;
 }
 
+.addbtn{
+    background-color: green;
+    color: white;
+    width: 95.5%;
+    margin: 5px 13px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.addbtn:hover{
+    background-color: whitesmoke;
+    border: 2px solid green;
+    color: green;
+}
+
 .searchField{
     margin: 10px 0;
 }
