@@ -103,3 +103,7 @@ body{
     background-color: #dad5d5;
     border: none;
 }
+
+.completed{
+    text-decoration: line-through;
+}
