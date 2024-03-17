@@ -61,8 +61,41 @@ function deleteTask(index){
     renderData()
 }
 
-//filtering data
+//searching data
 
+function filteredData(){
+    const searchValue = document.getElementById('search').value.toLowerCase()
+    console.log(searchValue)
+
+    const filterTasks = tasks.filter((task)=>{
+        const titleMatch = task.title.toLowerCase().includes(searchValue)
+        const priorityMatch = task.priority.toLowerCase().includes(searchValue)
+        const categoryMatch = task.category.toLowerCase().includes(searchValue)
+        return titleMatch || priorityMatch || categoryMatch
+    })
+
+    displayFilteredData(filterTasks)
+}
+
+function displayFilteredData(filterTasks){
+    const tasklist = document.getElementById('tasklist')
+    tasklist.innerHTML = ""
+
+    filterTasks.forEach((task,index)=>{
+        const listItem = document.createElement('li')
+        
+        listItem.innerHTML = `
+          <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
+          <button onclick="toggleCompletion(${index})">Complete</button>
+          <button onclick="deleteTask(${index})">View Details</button>
+          <button onclick="deleteTask(${index})">Delete</button>
+        `
+        if (task.completed) {
+            listItem.classList.add('completed')
+        }
+        tasklist.appendChild(listItem)
+    })
+}
 
 
 
