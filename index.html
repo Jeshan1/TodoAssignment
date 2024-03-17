@@ -29,7 +29,7 @@
             <button class="addbtn" onclick="addTask()">Add Task</button>
         </div>
         <div class="searchField">
-            <input type="text" id="search" name="search" placeholder="Search task here....">
+            <input type="text" id="search" name="search" oninput="filteredData()" placeholder="Search task here....">
         </div>
         <!-- filtering data based on category  -->
         <div class="filterDiv">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="displayTask">
-            <ul class="tasklist">
+            <ul class="tasklist" id="tasklist">
                 
             </ul>
         </div>
