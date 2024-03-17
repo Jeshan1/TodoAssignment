@@ -210,8 +210,6 @@ function editTask(index) {
 
 
 
-
-
 //to clear form
 function clearForm(){
     document.getElementById('title').value = ""
