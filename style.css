@@ -46,3 +46,20 @@ body{
     padding: 10px 15px;
     font-size: 20px;
 }
+.filterDiv{
+    margin: 10px 13px;
+}
+.filterDiv button{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filterDiv button:hover{
+    background-color: rgb(9, 204, 9);
+}
