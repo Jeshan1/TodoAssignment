@@ -23,7 +23,34 @@ function addTask(){
         }
     
         tasks.push(task)
+        clearForm()
     }
 
     console.log(tasks)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function clearForm(){
+    document.getElementById('title').value = ""
+    document.getElementById('description').value = ""
+    document.getElementById('priority').value = ""
+    document.getElementById('categories').value = ""
+    document.getElementById('deadline').value = ""
 }
