@@ -28,5 +28,11 @@ body{
     margin: 5px 13px;
     padding: 10px 15px;
     font-size: 20px;
+}
 
+.placeholderDiv select{
+    width: 95.5%;
+    font-size: 20px;
+    padding: 10px 15px;
+    margin: 5px 13px;
 }
