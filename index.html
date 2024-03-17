@@ -26,7 +26,8 @@
                 <option value="work">Work</option>
                 <option value="school">School</option>
             </select> 
-            <button class="addbtn" onclick="addTask()">Add Task</button>
+            <button class="addbtn" id="addbtn" onclick="addTask()">Add Task</button>
+            <button class="editbtn" id="editbtn" onclick="saveEditData()">Edit Task</button>
         </div>
         <div class="searchField">
             <input type="text" id="search" name="search" oninput="filteredData()" placeholder="Search task here....">
