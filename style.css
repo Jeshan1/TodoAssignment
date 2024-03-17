@@ -36,3 +36,13 @@ body{
     padding: 10px 15px;
     margin: 5px 13px;
 }
+
+.searchField{
+    margin: 10px 0;
+}
+.searchField input{
+    width: 90%;
+    margin: 5px 13px;
+    padding: 10px 15px;
+    font-size: 20px;
+}
