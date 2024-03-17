@@ -38,6 +38,7 @@ body{
 }
 
 .addbtn{
+    display: block;
     background-color: green;
     color: white;
     width: 95.5%;
@@ -106,4 +107,17 @@ body{
 
 .completed{
     text-decoration: line-through;
+}
+
+.editbtn{
+    display: none;
+    background-color: green;
+    color: white;
+    width: 95.5%;
+    margin: 5px 13px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
 }
