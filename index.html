@@ -15,10 +15,20 @@
             <textarea name="description" id="description" cols="30" rows="6" placeholder="Type description here...."></textarea>
             <input type="date" id="date" name="date">
             <select name="priority" id="priority">
+                <option value="none" selected disabled hidden>Select Priority</option>
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
-            </select>  
+            </select>
+            <select name="categories" id="categories">
+                <option value="none" selected disabled hidden>Select Category</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="school">School</option>
+            </select> 
+        </div>
+        <div class="searchField">
+            <input type="text" id="search" name="search" placeholder="Search task here....">
         </div>
     </div>
 
