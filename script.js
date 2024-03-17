@@ -56,10 +56,7 @@ function toggleCompletion(index){
     renderData()
 }
 
-function deleteTask(index){
-    tasks.splice(index,1)
-    renderData()
-}
+
 
 //searching data
 
@@ -97,12 +94,53 @@ function displayFilteredData(filterTasks){
     })
 }
 
+//filtering
+
+function findAll(){
+    renderData()
+}
+
+function findPersonal() {
+    const personalTasks = tasks.filter(task => task.category.toLowerCase() === 'personal');
+    displayData(personalTasks);
+}
+
+function findWork() {
+    const workTasks = tasks.filter(task => task.category.toLowerCase() === 'work');
+    displayData(workTasks);
+}
+
+function findSchool() {
+    const schoolTasks = tasks.filter(task => task.category.toLowerCase() === 'school');
+    displayData(schoolTasks);
+}
+
+function displayData(filteredTasks) {
+    const tasklist = document.getElementById('tasklist');
+    tasklist.innerHTML = "";
+
+    filteredTasks.forEach((task, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
+            <button onclick="toggleCompletion(${index})">Complete</button>
+            <button onclick="viewDetails(${index})">View Details</button>
+            <button onclick="deleteTask(${index})">Delete</button>
+        `;
+        if (task.completed) {
+            listItem.classList.add('completed');
+        }
+        tasklist.appendChild(listItem);
+    });
+}
 
 
 
-
-
-
+//deleting task
+function deleteTask(index){
+    tasks.splice(index,1)
+    renderData()
+}
 
 
 
