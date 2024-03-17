@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.top{
+    display: block;
+    background-color: rgb(243, 245, 243);
+    margin: 20px 30%;
+    padding: 10px;
+    border: 2px solid green;
+}
+.title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: green;
+}
+
+.placeholderDiv{
+    margin: 10px 0;
+    
+}
+.placeholderDiv input,textarea{
+    width: 90%;
+    display: block;
+    margin: 5px 13px;
+    padding: 10px 15px;
+    font-size: 20px;
+
+}
