@@ -24,13 +24,13 @@ function addTask(){
     
         tasks.push(task)
         clearForm()
-        renderData()
+        renderData(tasks)
     }
 
     console.log(tasks)
 }
 
-function renderData(){
+function renderData(tasks){
 
     const tasklist = document.getElementById('tasklist')
     tasklist.innerHTML = ""
@@ -42,6 +42,7 @@ function renderData(){
           <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
           <button onclick="toggleCompletion(${index})">Complete</button>
           <button onclick="deleteTask(${index})">View Details</button>
+          <button onclick="editTask(${index})">Edit</button>
           <button onclick="deleteTask(${index})">Delete</button>
         `
         if (task.completed) {
@@ -53,7 +54,7 @@ function renderData(){
 
 function toggleCompletion(index){
     tasks[index].completed = !tasks[index].completed
-    renderData()
+    renderData(tasks)
 }
 
 
@@ -85,6 +86,7 @@ function displayFilteredData(filterTasks){
           <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
           <button onclick="toggleCompletion(${index})">Complete</button>
           <button onclick="deleteTask(${index})">View Details</button>
+          <button onclick="editTask(${index})">Edit</button>
           <button onclick="deleteTask(${index})">Delete</button>
         `
         if (task.completed) {
@@ -131,6 +133,7 @@ function displayData(filteredTasks,category) {
                 <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
                 <button onclick="toggleCompletion(${index})">Complete</button>
                 <button onclick="viewDetails(${index})">View Details</button>
+                <button onclick="editTask(${index})">Edit</button>
                 <button onclick="deleteTask(${index})">Delete</button>
             `;
             if (task.completed) {
@@ -146,20 +149,69 @@ function displayData(filteredTasks,category) {
 //deleting task
 function deleteTask(index){
     tasks.splice(index,1)
-    renderData()
+    renderData(tasks)
+}
+
+let editingIndex = -1; 
+
+function saveEditData() {
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const deadline = document.getElementById('deadline').value;
+    const priority = document.getElementById('priority').value;
+    const category = document.getElementById('categories').value;
+
+    if (title ==="" || description ==="" || priority ==="" || category ==="" || deadline ==="") {
+        alert("please, Fill the all input field")
+    }
+       
+     else {
+        if (editingIndex === -1) {
+            // Create new task
+            const task = {
+                title,
+                description,
+                deadline,
+                priority,
+                category,
+                completed: false
+            };
+            tasks.push(task);
+        } else {
+            // Update existing task
+            tasks[editingIndex].title = title;
+            tasks[editingIndex].description = description;
+            tasks[editingIndex].deadline = deadline;
+            tasks[editingIndex].priority = priority;
+            tasks[editingIndex].category = category;
+
+            editingIndex = -1;
+        }
+
+        clearForm()
+
+        renderData(tasks);
+    }
+}
+
+function editTask(index) {
+    const task = tasks[index];
+    document.getElementById('title').value = task.title;
+    document.getElementById('description').value = task.description;
+    document.getElementById('deadline').value = task.deadline;
+    document.getElementById('priority').value = task.priority;
+    document.getElementById('categories').value = task.category;
+
+    editingIndex = index;
+    document.getElementById('editbtn').style.display = 'block';
+    document.getElementById('addbtn').style.display = 'none'
+    
 }
 
 
 
 
-
-
-
-
-
-
-
-
+//to clear form
 function clearForm(){
     document.getElementById('title').value = ""
     document.getElementById('description').value = ""
