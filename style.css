@@ -63,3 +63,26 @@ body{
 .filterDiv button:hover{
     background-color: rgb(9, 204, 9);
 }
+
+.displayTask{
+    margin: 10px 0;
+}
+.tasklist{
+    list-style-type: none;
+    display: grid;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+.tasklist li{
+    background-color: #f4f4f4;
+    color: green;
+    padding: 15px 10px;
+    margin: 5px 10px;
+    border: 2px solid green;
+}
+
+.tasklist li:hover{
+    background-color: #dad5d5;
+    border: none;
+}
