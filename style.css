@@ -23,7 +23,7 @@ body{
     
 }
 .placeholderDiv input,textarea{
-    width: 90%;
+    width: 92%;
     display: block;
     margin: 5px 13px;
     padding: 10px 15px;
@@ -59,7 +59,7 @@ body{
     margin: 10px 0;
 }
 .searchField input{
-    width: 90%;
+    width: 92%;
     margin: 5px 13px;
     padding: 10px 15px;
     font-size: 20px;
