@@ -297,5 +297,5 @@ function checkTaskDeadlines()
     
 }
 
-// Check task deadlines every hour
-setInterval(checkTaskDeadlines, 3600000); // 3600000 milliseconds = 1 hour
+// Check task deadlines every 2 minutes
+setInterval(checkTaskDeadlines, 120000);
