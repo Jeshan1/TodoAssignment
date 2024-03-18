@@ -258,3 +258,44 @@ function clearForm(){
     document.getElementById('categories').value = ""
     document.getElementById('deadline').value = ""
 }
+
+// function to check task deadline and display notification
+
+function checkTaskDeadlines()
+{
+    let currentTime = new Date().getTime()
+
+    let notifications = []; 
+
+    tasks.forEach(task => {
+        if (!task.completed) { 
+            const taskDeadline = new Date(task.deadline).getTime();
+            const timeDifference = taskDeadline - currentTime;
+
+            if (timeDifference > 0 && timeDifference <= 24 * 60 * 60 * 1000) {
+                notifications.push(`Deadline for "${task.title}" is approaching!`);
+            }
+        }
+    });
+
+    // Display notifications here
+    if (notifications.length > 0) {
+        const options = {
+            body: notifications.join('\n') // Join notifications with newlines
+        };
+
+        if (Notification.permission === 'granted') {
+            new Notification('Task Reminders', options);
+        } else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('Task Reminders', options);
+                }
+            });
+        }
+    }
+    
+}
+
+// Check task deadlines every hour (you can adjust the interval as needed)
+setInterval(checkTaskDeadlines, 60000); // 3600000 milliseconds = 1 hour
