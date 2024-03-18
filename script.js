@@ -150,8 +150,8 @@ function displayData(filteredTasks,category) {
 function viewTask(index){
     const task = tasks[index]
     openModal()
-    document.getElementById('taskTitle').innerHTML = `Title: ${task.title}`
-    document.getElementById('taskDescription').innerHTML = `Description: ${task.description}`
+    document.getElementById('taskTitle').innerHTML = task.title
+    document.getElementById('taskDescription').innerHTML = task.description
     document.getElementById('taskDeadline').innerHTML = `Deadline: ${task.deadline}`
     document.getElementById('taskPriority').innerHTML = `Priority: ${task.priority}`
     document.getElementById('taskCategory').innerHTML = `Category: ${task.category}`
