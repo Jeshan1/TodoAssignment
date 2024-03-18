@@ -145,7 +145,43 @@ function displayData(filteredTasks,category) {
 }
 
 
+//view all details of specific task on modal
 
+function viewTask(index){
+    const task = tasks[index]
+    openModal()
+    document.getElementById('taskTitle').innerHTML = task.title
+    document.getElementById('taskDescription').innerHTML = task.description
+    document.getElementById('taskDeadline').innerHTML = task.deadline
+    document.getElementById('taskPriority').innerHTML = task.priority
+    document.getElementById('taskCategory').innerHTML = task.category
+
+}
+
+let close = document.getElementById('close')
+let modal = document.getElementById('modal');
+
+function openModal(){
+    if (modal.style.display == 'none') { 
+        modal.style.display = "flex";
+        modal.style.justifyContent = "center";
+        modal.style.alignItems = "center";
+    }
+    else{
+        modal.style.display = "none";
+    }
+
+}
+// close modal if close icon clicked
+close.onclick = function() {
+    modal.style.display = "none"
+  }
+//for close modal if click anywhere
+window.onclick = function(e){
+    if (e.target == modal) {
+        modal.style.display = 'none'
+    }
+}
 
 
 //deleting task
@@ -188,9 +224,8 @@ function saveEditData() {
             tasks[editingIndex].category = category;
 
             editingIndex = -1;
-            document.getElementById('editbtn').style.display = 'none'
+            document.getElementById('editbtn').style.display = 'none';
             document.getElementById('addbtn').style.display = 'block'
-
         }
 
         clearForm()
@@ -201,16 +236,16 @@ function saveEditData() {
 
 function editTask(index) {
     const task = tasks[index];
-    document.getElementById('title').value = task.title
-    document.getElementById('description').value = task.description
-    document.getElementById('deadline').value = task.deadline
-    document.getElementById('priority').value = task.priority
-    document.getElementById('categories').value = task.category
+    document.getElementById('title').value = task.title;
+    document.getElementById('description').value = task.description;
+    document.getElementById('deadline').value = task.deadline;
+    document.getElementById('priority').value = task.priority;
+    document.getElementById('categories').value = task.category;
 
     editingIndex = index;
-    document.getElementById('editbtn').style.display = 'block'
+    document.getElementById('editbtn').style.display = 'block';
     document.getElementById('addbtn').style.display = 'none'
-
+    
 }
 
 
