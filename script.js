@@ -263,17 +263,17 @@ function clearForm(){
 
 function checkTaskDeadlines()
 {
-    let currentTime = new Date().getTime()
+    let currentTime = new Date()
 
     let notifications = []; 
 
     tasks.forEach(task => {
         if (!task.completed) { 
-            const taskDeadline = new Date(task.deadline).getTime();
+            const taskDeadline = new Date(task.deadline);
             const timeDifference = taskDeadline - currentTime;
 
             if (timeDifference > 0 && timeDifference <= 24 * 60 * 60 * 1000) {
-                notifications.push(`Deadline for "${task.title}" is approaching!`);
+                notifications.push(`Deadline for "${task.title}" is approaching for ${Math.ceil(timeDifference / (1000 * 60 * 60))} hours!`);
             }
         }
     });
@@ -297,5 +297,5 @@ function checkTaskDeadlines()
     
 }
 
-// Check task deadlines every hour (you can adjust the interval as needed)
-setInterval(checkTaskDeadlines, 60000); // 3600000 milliseconds = 1 hour
+// Check task deadlines every hour
+setInterval(checkTaskDeadlines, 3600000); // 3600000 milliseconds = 1 hour
