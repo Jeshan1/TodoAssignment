@@ -99,7 +99,7 @@ function displayFilteredData(filterTasks){
 //filtering
 
 function findAll(){
-    renderData()
+    displayData(tasks,'all')
 }
 
 function findPersonal() {
