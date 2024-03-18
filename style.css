@@ -140,23 +140,62 @@ body{
 }
 
 .detail{
-    background-color: #fefefe;
+    background-color: white;
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 2px solid whitesmoke;
+    width: 60%;
+    border-radius: 20px;
 }
 
 .close {
-    color: #aaa;
+    color: rgb(237, 14, 14);
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
-    color: black;
+.close:hover,.close:focus {
+    color: rgb(155, 6, 6);
     text-decoration: none;
     cursor: pointer;
   }
+
+.taskTitle{
+    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.taskDescription{
+    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.taskDeadline{
+    background-color: rgb(233, 37, 37);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+.taskPriority{
+    background-color: rgb(18, 18, 231);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+.taskCategory{
+    background-color: rgb(8, 122, 122);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+.taskBottom{
+    margin: 30px 0;
+}
