@@ -164,14 +164,14 @@ body{
 .taskTitle{
     color: green;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
 }
 
 .taskDescription{
     color: green;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
 }
 .taskDeadline{
