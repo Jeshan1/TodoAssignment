@@ -188,6 +188,9 @@ function saveEditData() {
             tasks[editingIndex].category = category;
 
             editingIndex = -1;
+            document.getElementById('editbtn').style.display = 'none'
+            document.getElementById('addbtn').style.display = 'block'
+
         }
 
         clearForm()
@@ -198,14 +201,14 @@ function saveEditData() {
 
 function editTask(index) {
     const task = tasks[index];
-    document.getElementById('title').value = task.title;
-    document.getElementById('description').value = task.description;
-    document.getElementById('deadline').value = task.deadline;
-    document.getElementById('priority').value = task.priority;
-    document.getElementById('categories').value = task.category;
+    document.getElementById('title').value = task.title
+    document.getElementById('description').value = task.description
+    document.getElementById('deadline').value = task.deadline
+    document.getElementById('priority').value = task.priority
+    document.getElementById('categories').value = task.category
 
     editingIndex = index;
-    document.getElementById('editbtn').style.display = 'block';
+    document.getElementById('editbtn').style.display = 'block'
     document.getElementById('addbtn').style.display = 'none'
 
 }
