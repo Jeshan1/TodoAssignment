@@ -40,10 +40,10 @@ function renderData(tasks){
         
         listItem.innerHTML = `
           <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
-          <button onclick="toggleCompletion(${index})">Complete</button>
-          <button onclick="viewTask(${index})">View Details</button>
-          <button onclick="editTask(${index})">Edit</button>
-          <button onclick="deleteTask(${index})">Delete</button>
+          <button onclick="toggleCompletion(${index})" class="completeBtn">Complete</button>
+          <button onclick="viewTask(${index})" class="viewDetailBtn">View Details</button>
+          <button onclick="editTask(${index})" class="editBtnList">Edit</button>
+          <button onclick="deleteTask(${index})" class="deleteBtn">Delete</button>
         `
         if (task.completed) {
             listItem.classList.add('completed')
