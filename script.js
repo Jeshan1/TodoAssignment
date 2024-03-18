@@ -41,7 +41,7 @@ function renderData(tasks){
         listItem.innerHTML = `
           <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
           <button onclick="toggleCompletion(${index})">Complete</button>
-          <button onclick="deleteTask(${index})">View Details</button>
+          <button onclick="viewTask(${index})">View Details</button>
           <button onclick="editTask(${index})">Edit</button>
           <button onclick="deleteTask(${index})">Delete</button>
         `
@@ -85,7 +85,7 @@ function displayFilteredData(filterTasks){
         listItem.innerHTML = `
           <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
           <button onclick="toggleCompletion(${index})">Complete</button>
-          <button onclick="deleteTask(${index})">View Details</button>
+          <button onclick="viewTask(${index})">View Details</button>
           <button onclick="editTask(${index})">Edit</button>
           <button onclick="deleteTask(${index})">Delete</button>
         `
@@ -132,7 +132,7 @@ function displayData(filteredTasks,category) {
             listItem.innerHTML = `
                 <strong>${task.title}</strong> - ${task.deadline} - Priority: ${task.priority}
                 <button onclick="toggleCompletion(${index})">Complete</button>
-                <button onclick="viewDetails(${index})">View Details</button>
+                <button onclick="viewTask(${index})">View Details</button>
                 <button onclick="editTask(${index})">Edit</button>
                 <button onclick="deleteTask(${index})">Delete</button>
             `;
@@ -143,6 +143,8 @@ function displayData(filteredTasks,category) {
         });
     }
 }
+
+
 
 
 
@@ -205,7 +207,7 @@ function editTask(index) {
     editingIndex = index;
     document.getElementById('editbtn').style.display = 'block';
     document.getElementById('addbtn').style.display = 'none'
-    
+
 }
 
 
